@@ -6,7 +6,7 @@ $(document).ready(function() {
       url:  this.action,
       data: $(this).serialize()
     }).done(function(response){
-      $("#grandma-response").append(response);
+      $("#grandma-response").html(response);
     }).fail(function(){
       console.log("shitty");
     });
