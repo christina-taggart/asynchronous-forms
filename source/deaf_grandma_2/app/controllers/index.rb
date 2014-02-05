@@ -4,11 +4,10 @@ get '/' do
   erb :index
 end
 
-put '/grandma' do
+post '/grandma' do
   if params[:user_input].upcase == params[:user_input]
-    @grandma = "Hey sonny"
+    "Hey sonny"
   else
-    @grandma = "Speak up!"
+    "Speak up!"
   end
-  erb :index
 end
