@@ -4,4 +4,21 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-});
+
+    // console.log("handler for .submit() called.");
+
+    $("form").on("submit", function (event) {
+      event.preventDefault();
+      console.log(grandma_data = $(this).serialize())
+      $.ajax({
+        type: "POST",
+        url: "/grandma",
+        data: grandma_data,
+      }).done(function(server_data){
+        console.log("here is our data: " + server_data);
+        $('#grandmasays').html(server_data)
+      });
+    });
+  });
+
+
