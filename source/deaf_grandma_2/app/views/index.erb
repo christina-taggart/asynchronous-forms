@@ -4,10 +4,12 @@
     <p>Grandma says: "<span id="grandma_says"><%= @grandma %></span>"</p>
   <% end %>
 
-  <form action="/grandma" method="post">
+  <form action="/grandma" method="post" id="granny_talk">
     Say something to Grandma:
     <br>
-    <input type="text" name="user_input">
-    <input type="submit" value="Say it!">
+    <input id="user_input" type="text" name="user_input">
+    <input id="submit_button" type="submit" value="Say it!">
   </form>
+
+  <p id="granny_response"></p>
 </div>
