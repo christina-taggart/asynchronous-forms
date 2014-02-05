@@ -1,9 +1,9 @@
 get '/' do
   @grandma = params[:grandma]
-  # Look in app/views/index.erb
   erb :index
 end
 
 post '/grandma' do
-  "Implement the /grandma route yourself.<br>Params: <code>#{params.inspect}</code>"
+  @grandma_response = grandma_response(params[:user_input])
+  erb :response, layout: false
 end
