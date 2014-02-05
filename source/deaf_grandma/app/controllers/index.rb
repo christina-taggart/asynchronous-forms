@@ -5,6 +5,5 @@ get '/' do
 end
 
 post '/grandma' do
-  @grandma = GrandmaSpeaker.new(params[:user_input]).speak!
-  erb :index
+  GrandmaSpeaker.new(params[:user_input]).speak!
 end

@@ -1,8 +1,9 @@
 <div class="container">
   <h1>Deaf Grandma</h1>
-  <% if @grandma %>
-    <p>Grandma says: "<span id="grandma_says"><%= @grandma %></span>"</p>
-  <% end %>
+
+  <div class="stuff">
+    <p>Grandma says: <span id="grandma_says"></span></p>
+  </div>
 
   <form action="/grandma" method="post">
     Say something to Grandma:
