@@ -1,7 +1,22 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $("form").on("submit", function(event) {
+    event.preventDefault();
+    var userInput = $("input[type='text']").val();
+    console.log(userInput)
+    $.ajax({
+      type: "POST",
+      url: "/grandma",
+      data: userInput,
+    })
+    .done(function() {
+      if (userInput.match(/[a-z]/))
+      {
+        $(".container").prepend($("<p>Speak up, Sonny!</p>"));
+      }
+      else
+      {
+        $(".container").prepend($("<p>No, not since 1964!</p>"));
+      }
+    });
+  })
 });
