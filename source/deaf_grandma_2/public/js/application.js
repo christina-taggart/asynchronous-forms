@@ -1,7 +1,18 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $('#talk').on('submit', function(e){
+    e.preventDefault();
+    $('#submit_button').prop('disabled', true);
+    $.ajax({
+      method: "POST",
+      url: "/grandma",
+      data: $('#user_input').serialize(),
+    }).done(function(response_from_ruby){
+      $('#response').text(response_from_ruby)
+    }).fail(function(){
+      $('#response').text("ERROR!")
+    }).always(function(){
+      $('#user_input').val("")
+      $('#submit_button').prop('disabled', false);
+    })
+  });
 });
